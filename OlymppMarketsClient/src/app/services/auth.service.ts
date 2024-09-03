@@ -22,7 +22,10 @@ export class AuthService {
       this.loggedIn.next(true);
     }));
   }
-
+  // Méthode d'inscription
+  register(username: string, password: string): Observable<AuthResponse> {
+  return this.http.post<AuthResponse>(`${this.apiUrl}/api/authorization/register`, { username, password });
+}
   // Méthode de déconnexion
   logout(): void {
     localStorage.removeItem('token'); 

@@ -40,7 +40,7 @@ namespace OlymppMarketsAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterAsync([FromBody] UserRegisterRequestDTO request)
+        public async Task<IActionResult> Register([FromBody] UserRegisterRequestDTO request)
         {
             var command = new RegisterUserCommand
             {

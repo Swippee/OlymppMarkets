@@ -10,22 +10,22 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule]
 })
 export class ProductsComponent implements OnInit {
-  products: Product[] = [];
+ public products: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(private readonly productService: ProductService) {}
 
   ngOnInit(): void {
     this.loadProducts();
   }
 
-  loadProducts() {
-    this.productService.getAllProducts().subscribe(
-      (data) => {
+  private loadProducts() : void {
+    this.productService.getAllProducts().subscribe({
+      next:(data)=> {
         this.products = data;
       },
-      (error) => {
+      error:(error)=> {
         console.error('Error loading products', error);
-      }
-    );
-  }
+      },
+    })   
+  };
 }

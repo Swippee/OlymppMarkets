@@ -8,5 +8,7 @@
     <label for="password">Password:</label>
     <input type="password" id="password" [(ngModel)]="password" name="password" required>
   </div>
-  <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+  <button type="submit" [disabled]="!loginForm.form.valid" id="loginButton">Login</button>
+
 </form>
+<p>Don't have an account? <a href="/register">Create an account</a></p>
