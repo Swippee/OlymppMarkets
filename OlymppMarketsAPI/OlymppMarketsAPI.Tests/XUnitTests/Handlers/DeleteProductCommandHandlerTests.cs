@@ -5,7 +5,7 @@ using OlymppMarketsAPI.Domain.Entities;
 using OlymppMarketsAPI.Domain.Interfaces;
 
 
-namespace OlymppMarketsAPI.Tests.Handlers
+namespace OlymppMarketsAPI.Tests.XUnitTests.Handlers
 {
     public class DeleteProductCommandHandlerTests
     {

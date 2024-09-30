@@ -6,7 +6,7 @@ using OlymppMarketsAPI.Domain.Entities;
 using OlymppMarketsAPI.Domain.Interfaces;
 using OlymppMarketsAPI.DTOs;
 
-namespace OlymppMarketsAPI.Tests.Handlers
+namespace OlymppMarketsAPI.Tests.XUnitTests.Handlers
 {
     public class GetAllProductsQueryHandlerTests
     {
@@ -19,7 +19,7 @@ namespace OlymppMarketsAPI.Tests.Handlers
             _mapper = config.CreateMapper();
 
             _productRepositoryMock = new Mock<IProductRepository>();
-            _handler = new GetAllProductsQueryHandler(_productRepositoryMock.Object, _mapper); 
+            _handler = new GetAllProductsQueryHandler(_productRepositoryMock.Object, _mapper);
         }
 
         [Fact]

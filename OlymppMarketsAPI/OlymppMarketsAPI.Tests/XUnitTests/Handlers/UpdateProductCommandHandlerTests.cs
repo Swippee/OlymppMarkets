@@ -8,7 +8,7 @@ using OlymppMarketsAPI.Domain.Interfaces;
 using OlymppMarketsAPI.DTOs;
 
 
-namespace OlymppMarketsAPI.Tests.Handlers
+namespace OlymppMarketsAPI.Tests.XUnitTests.Handlers
 {
     public class UpdateProductCommandHandlerTests
     {
