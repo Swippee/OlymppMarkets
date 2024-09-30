@@ -1,14 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using OlymppMarketsAPI.DTOs;
-using OlymppMarketsAPI.Infrastructure.Repositories;
-using OlymppMarketsAPI.Domain.Entities;
-using OlymppMarketsAPI.Domain.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
+using OlymppMarketsAPI.DTOs;
 using OlymppMarketsAPI.Application.Commands;
 
 namespace OlymppMarketsAPI.Controllers

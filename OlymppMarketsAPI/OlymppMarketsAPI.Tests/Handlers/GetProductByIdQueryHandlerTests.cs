@@ -1,17 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using Moq;
 using OlymppMarketsAPI.Application.Mappings;
 using OlymppMarketsAPI.Application.Queries;
 using OlymppMarketsAPI.Domain.Entities;
 using OlymppMarketsAPI.Domain.Interfaces;
-using OlymppMarketsAPI.DTOs;
-using OlymppMarketsAPI.Infrastructure.Data;
-using OlymppMarketsAPI.Infrastructure.Repositories;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace OlymppMarketsAPI.Tests.Handlers
 {
