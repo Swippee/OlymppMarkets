@@ -1,0 +1,38 @@
+<div class="cart-container">
+    <h2>Mon Panier</h2>
+    
+    <div *ngIf="cartItems.length > 0; else emptyCart">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix Cumulé</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems">
+            <td>{{ item.productName }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.quantity * item.price | currency:'EUR' }}</td>
+            <td>
+              <button class="remove-btn" (click)="removeFromCart(item.productName)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="total-container">
+        <h5>Total: {{ calculateTotal() | currency }}</h5>
+        <button class="checkout-btn">Procéder au paiement</button>
+      </div>
+    </div>
+    
+    <ng-template #emptyCart>
+      <div class="empty-cart-message">
+        Votre panier est vide.
+      </div>
+    </ng-template>
+  </div>
+  

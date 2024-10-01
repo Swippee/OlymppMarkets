@@ -29,8 +29,7 @@ export class ProductsComponent implements OnInit {
       },
     })   
   };
-  public addToCart(productName: string) {
-    this.cartService.addToCart(productName);
-    alert(`${productName} has been added to your cart!`); // Optionnel : notification à l'utilisateur
+  public addToCart(productName: string, price:number) {
+    this.cartService.addToCart(productName,price);
   }
 }

@@ -11,7 +11,7 @@
           <p class="product-brand">Marque : {{ product.brand }}</p>
           <p class="product-size">Taille : {{ product.size }}</p>
           <p class="product-price">Prix : {{ product.price | currency }}</p>
-          <button class="add-to-cart" (click)="addToCart(product.name)">Ajouter au panier</button>
+          <button class="add-to-cart" (click)="addToCart(product.name,product.price)">Ajouter au panier</button>
         </div>
       </div>
     </li>
