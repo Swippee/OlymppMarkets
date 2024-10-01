@@ -1,6 +1,19 @@
-<h1>Products</h1>
-<ul>
-  <li *ngFor="let product of products">
-    <span id="product{{product.id}}">{{ product.name }} - {{ product.price }}  </span>
-  </li>
-</ul>
+<h1 class="products-title">Nos Produits</h1>
+<div class="products-container">
+  <ul class="products-list">
+    <li *ngFor="let product of products" class="product-item">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="assets/images/{{product.name}}.jpg" alt="{{ product.name }}" />
+        </div>
+        <div class="product-info">
+          <h2 class="product-name">{{ product.name }}</h2>
+          <p class="product-brand">Marque : {{ product.brand }}</p>
+          <p class="product-size">Taille : {{ product.size }}</p>
+          <p class="product-price">Prix : {{ product.price | currency }}</p>
+          <button class="add-to-cart" (click)="addToCart(product.name)">Ajouter au panier</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

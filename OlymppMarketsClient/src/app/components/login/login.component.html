@@ -11,4 +11,5 @@
   <button type="submit" [disabled]="!loginForm.form.valid" id="loginButton">Login</button>
 
 </form>
+<p *ngIf="errorMessage" style="color:red">{{errorMessage}}</p>
 <p>Don't have an account? <a href="/register">Create an account</a></p>

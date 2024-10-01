@@ -25,9 +25,19 @@ namespace OlymppMarketsAPI.Controllers
                 Username = request.Username,
                 Password = request.Password
             };
-
-            var token = await _mediator.Send(command);
-            return Ok(new UserLoginResponseDTO { Token = token });
+            try
+            {
+                var token = await _mediator.Send(command);
+                return Ok(new UserLoginResponseDTO { Token = token });
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized(new { message = "Invalide username or password" });
+            }
+            catch (Exception e)
+            {
+                return Unauthorized(new { message = "Unexpected error while logging. Please retry later." });
+            }
 
         }
 

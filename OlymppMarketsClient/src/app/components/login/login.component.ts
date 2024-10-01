@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
@@ -8,22 +9,28 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true, 
-  imports: [FormsModule]
+  imports: [FormsModule,CommonModule]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   username: string = '';
   password: string = '';
-
-  constructor(private authService: AuthService, private router: Router, private localStorage: Storage) {}
-
+  errorMessage: string='';
+  constructor(private authService: AuthService, private router: Router) {}
+  ngOnInit() {
+    this.authService.isLoggedIn$.subscribe(loggedIn=>{
+      if (loggedIn){
+        this.router.navigate(['/']); 
+      }
+    })
+  }
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(
       (response: any) => {
-        this.localStorage.setItem('token', response.token);
+        localStorage.setItem('token', response.token);
         this.router.navigate(['/']); 
       },
       (error) => {
-        console.error('Login failed', error);
+          this.errorMessage=error.error.message;     
       }
     );
   }

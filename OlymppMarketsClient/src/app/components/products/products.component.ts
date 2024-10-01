@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model'; // Assurez-vous d'importer le modèle
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class ProductsComponent implements OnInit {
  public products: Product[] = [];
 
-  constructor(private readonly productService: ProductService) {}
+  constructor(private readonly productService: ProductService,private cartService: CartService) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -28,4 +29,8 @@ export class ProductsComponent implements OnInit {
       },
     })   
   };
+  public addToCart(productName: string) {
+    this.cartService.addToCart(productName);
+    alert(`${productName} has been added to your cart!`); // Optionnel : notification à l'utilisateur
+  }
 }
